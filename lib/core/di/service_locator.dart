@@ -106,6 +106,18 @@ void _registerPaymentMethods() {
   }
 }
 
+/// Registers the `PaymentMethodService` as a lazy singleton in the service locator.
+///
+/// The keys represent the payment method names in English and Arabic:
+/// - `'credit card'` and `'بطاقة ائتمان'` → `CreditCardPayment`
+/// - `'cashondelivery'` and `'الدفع عند الاستلام'` → `CashOnDeliveryPayment`
+/// - `'paylater'` and `'الدفع لاحقًا'` → `PayLaterPayment`
+///
+/// Example usage:
+/// ```dart
+/// final paymentService = getIt<PaymentMethodService>();
+/// final method = paymentService.getMethod('credit card');
+/// ```
 void _registerPaymentMethodService() {
   if (!getIt.isRegistered<PaymentMethodService>()) {
     getIt.registerLazySingleton<PaymentMethodService>(
