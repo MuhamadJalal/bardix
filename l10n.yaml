@@ -1,0 +1,7 @@
+#  to enable Flutter's localization system.
+arb-dir: lib/l10n
+template-arb-file: app_en.arb
+output-localization-file: l10n.dart
+output-class: S
+synthetic-package: false
+nullable-getter: false
